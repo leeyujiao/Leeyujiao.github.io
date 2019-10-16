@@ -234,7 +234,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-16 00:00:47" itemprop="dateModified" datetime="2019-10-16T00:00:47+08:00">2019-10-16</time>
+                <time title="修改时间：2019-10-16 11:52:32" itemprop="dateModified" datetime="2019-10-16T11:52:32+08:00">2019-10-16</time>
               </span>
             
           
@@ -250,14 +250,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>##MyBatis项目的创建流程：</p>
+          <p>MyBatis项目的创建流程：</p>
 <pre><code>1.利用maven创建quickstart项目并导包（sql包和mybatis包）；
 2.在main文件夹下创建一个包，右击mark为Resources型，在该包中创建一个名为config.xml的文件，在其中配置环境；
-3.在Java文件夹下创建bean包，写被操作表中的属性和set，get，toString方法；
+3.在Java文件夹下创建bean包，创建一个Info类来写被操作表中的属性和set，get，toString方法；
 4.在Java文件夹下创建mapper包，再创建mapper接口和.xml文件，接口中定义函数，xml中写sql语句并绑定函数；
-5.建一个test类产生对象调用方法；</code></pre><p>##关于sql语句中的#和$</p>
+5.建一个test类产生对象调用方法；</code></pre><p>关于sql语句中的#和$</p>
 <pre><code>符号#类似于通配符，和sql语句结合；
-符号$是直接补全sql语句，若有存在字符型，字符串型就需要在字符/字符串上加‘’，否则sql语句不能执行；</code></pre>
+符号$是直接补全sql语句，若有存在字符型，字符串型就需要在字符/字符串上加‘’，否则sql语句不能执行；</code></pre><p>需多参数传递的解决方法</p>
+<pre><code>Mapper接口中的方法不能传递多参数，故需要封装：
+1.可以封装成为Info类型；
+2.可以封装成集合（好处是可以自定义属性名称）；</code></pre><p>列名和属性名不匹配</p>
+<pre><code>1.在sql语句中直接用 ...as...改正；
+2.在Mapper.xml中加入&lt;resultMap&gt;标签，子标签&lt;id&gt;和&lt;reult&gt;用来定义转换关系，主键用&lt;id&gt;，非主键用&lt;reult&gt;；</code></pre>
         
       
     </div>
