@@ -236,7 +236,7 @@
                 
               
 
-              <time title="创建时间：2019-10-20 10:08:10 / 修改时间：10:10:42" itemprop="dateCreated datePublished" datetime="2019-10-20T10:08:10+08:00">2019-10-20</time>
+              <time title="创建时间：2019-10-20 10:08:10 / 修改时间：10:37:52" itemprop="dateCreated datePublished" datetime="2019-10-20T10:08:10+08:00">2019-10-20</time>
             </span>
           
             
@@ -272,74 +272,55 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Ajax:<br>Asynchronous Javascript And xml     异步的JavaScript和XML。<br>1，异步和同步：客户端和服务器端相互通信的基础上<br>客户端必须等待服务器端的响应，在等待期间不能做其他操作；<br>客户端不需要等待服务器端的响应，在服务器处理请求的过程中，客户端可以进行其他操作<br><img src="%5Cimages%5Cajax01.png" alt><br>AJAX是一种在无需重新加载整个页面的情况下，能够更新部分网页的技术。<br>通过在后台与服务器进行少量数据交换，Ajax可以使网页实现异步更新，这意味着可以在不重新加载整个页面的情况下，对网页的某部分进行更新。<br>传统的网页（不使用Ajax）如果需要更新内容，必须重载整个网页页面<br>提升用户体验；</p>
+          <p>Ajax:<br>Asynchronous Javascript And xml     异步的JavaScript和XML。<br>1，异步和同步：客户端和服务器端相互通信的基础上<br>客户端必须等待服务器端的响应，在等待期间不能做其他操作；<br>客户端不需要等待服务器端的响应，在服务器处理请求的过程中，客户端可以进行其他操作<br><img src="images\ajax01.png"><br>AJAX是一种在无需重新加载整个页面的情况下，能够更新部分网页的技术。<br>通过在后台与服务器进行少量数据交换，Ajax可以使网页实现异步更新，这意味着可以在不重新加载整个页面的情况下，对网页的某部分进行更新。<br>传统的网页（不使用Ajax）如果需要更新内容，必须重载整个网页页面<br>提升用户体验；</p>
 <p>实现方式：<br>1.原生的js实现方式；</p>
-<script>
-    function ajaxdemo(){
-        //第一步 创建Ajax对象
-        var ajax=new XMLHttpRequest();
-        //第四步：回调
-        ajax.onreadystatechange=function () {  //当有回调时
-            var ststus1=ajax.status;  //状态码
-            var readyStatel=ajax.readyState;//
-            if (ststus1==200&&readyStatel==4) {//200 路径正确，servlet未出错  500客户端错    400    服务器错误     4 全完成    3 未返回回应 2 未send  1  创建未open 0 未创建
-                var result = ajax.responseText;   //返回结果     做相应
-                alert(result);
-            }
+<pre><code>function ajaxdemo(){
+    //第一步 创建Ajax对象
+    var ajax=new XMLHttpRequest();
+    //第四步：回调
+    ajax.onreadystatechange=function () {  //当有回调时
+        var ststus1=ajax.status;  //状态码
+        var readyStatel=ajax.readyState;//
+        if (ststus1==200&amp;&amp;readyStatel==4) {//200 路径正确，servlet未出错  500客户端错    400    服务器错误     4 全完成    3 未返回回应 2 未send  1  创建未open 0 未创建
+            var result = ajax.responseText;   //返回结果     做相应
+            alert(result);
         }
-        //第二步 打开链接通道
-        ajax.open("get","a?a=3&b=4",true);  //第三个参数是   是否异步
-        //三：发送
-        ajax.send();
     }
-</script>
+    //第二步 打开链接通道
+    ajax.open(&quot;get&quot;,&quot;a?a=3&amp;b=4&quot;,true);  //第三个参数是   是否异步
+    //三：发送
+    ajax.send();
+}</code></pre><p>2.Jquery实现方式；<br>$.ajax():<br>语法：$.ajax({键值对});</p>
+<pre><code>//定义方法
+function fun() {
+    //使用$.ajax()发送异步请求
+    $.ajax({
+       url:&quot;ajaxServlet&quot;,//请求路径
+        type:&quot;post&quot;,  //请求方式 默认get
+       // data:&quot;username=jack&amp;age=23&quot;,          //携带的参数方法一
+        data:{&quot;username&quot;:&quot;jack&quot;,&quot;age&quot;:23},//方法二 推荐
+        //回调函数
+        success:function (data) {  //data接受服务器返回结果的值
+            alert(data)
+        },//响应成功后的回调函数
+        error:function () {
+            alert(&quot;出错了&quot;)
+        },//表示如果请求响应出错，会执行的回调函数
+        dataType:&quot;text&quot;//设置受到的响应的数据格式
 
-<p>2.Jquery实现方式；<br>$.ajax():<br>语法：$.ajax({键值对});</p>
-<script>
-    //定义方法
-    function fun() {
-        //使用$.ajax()发送异步请求
-        $.ajax({
-           url:"ajaxServlet",//请求路径
-            type:"post",  //请求方式 默认get
-           // data:"username=jack&age=23",          //携带的参数方法一
-            data:{"username":"jack","age":23},//方法二 推荐
-            //回调函数
-            success:function (data) {  //data接受服务器返回结果的值
-                alert(data)
-            },//响应成功后的回调函数
-            error:function () {
-                alert("出错了")
-            },//表示如果请求响应出错，会执行的回调函数
-            dataType:"text"//设置受到的响应的数据格式
-
-            });
-</script>
-
-<p>$.get():发送get请求<br>语法：$.get(url,[data],[callback],[type])<br>参数：<br>url:请求路径<br>data:请求参数<br>callback:回调函数<br>type:响应结果的类型</p>
-<script>
-    //定义方法
-    function fun() {
-        $.get("ajaxServlet",{username:"tom",age:23}, function (data) {
-            alert(data);
-        },"text");
-    }
-</script>
-
-<p>$.post():发送post请求</p>
-<script>
-    //定义方法
-    function fun() {
-        $.post("ajaxServlet",{username:"tom",age:23}, function (data) {
-            alert(data);
-        },"text");
-    }
-</script>
-
-
-
-
-
+        });</code></pre><p>$.get():发送get请求<br>语法：$.get(url,[data],[callback],[type])<br>参数：<br>url:请求路径<br>data:请求参数<br>callback:回调函数<br>type:响应结果的类型</p>
+<pre><code>//定义方法
+function fun() {
+    $.get(&quot;ajaxServlet&quot;,{username:&quot;tom&quot;,age:23}, function (data) {
+        alert(data);
+    },&quot;text&quot;);
+}</code></pre><p>$.post():发送post请求</p>
+<pre><code>//定义方法
+function fun() {
+    $.post(&quot;ajaxServlet&quot;,{username:&quot;tom&quot;,age:23}, function (data) {
+        alert(data);
+    },&quot;text&quot;);
+}</code></pre>
         
       
     </div>
