@@ -206,6 +206,160 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leeyujiao.github.io/2019/10/20/Ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leeyujiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leeyujiao's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2019/10/20/Ajax/" class="post-title-link" itemprop="url">Ajax</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-20 10:08:10 / 修改时间：10:10:42" itemprop="dateCreated datePublished" datetime="2019-10-20T10:08:10+08:00">2019-10-20</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ajax与JSON/" itemprop="url" rel="index">
+                    <span itemprop="name">Ajax与JSON</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Ajax:<br>Asynchronous Javascript And xml     异步的JavaScript和XML。<br>1，异步和同步：客户端和服务器端相互通信的基础上<br>客户端必须等待服务器端的响应，在等待期间不能做其他操作；<br>客户端不需要等待服务器端的响应，在服务器处理请求的过程中，客户端可以进行其他操作<br><img src="%5Cimages%5Cajax01.png" alt><br>AJAX是一种在无需重新加载整个页面的情况下，能够更新部分网页的技术。<br>通过在后台与服务器进行少量数据交换，Ajax可以使网页实现异步更新，这意味着可以在不重新加载整个页面的情况下，对网页的某部分进行更新。<br>传统的网页（不使用Ajax）如果需要更新内容，必须重载整个网页页面<br>提升用户体验；</p>
+<p>实现方式：<br>1.原生的js实现方式；</p>
+<script>
+    function ajaxdemo(){
+        //第一步 创建Ajax对象
+        var ajax=new XMLHttpRequest();
+        //第四步：回调
+        ajax.onreadystatechange=function () {  //当有回调时
+            var ststus1=ajax.status;  //状态码
+            var readyStatel=ajax.readyState;//
+            if (ststus1==200&&readyStatel==4) {//200 路径正确，servlet未出错  500客户端错    400    服务器错误     4 全完成    3 未返回回应 2 未send  1  创建未open 0 未创建
+                var result = ajax.responseText;   //返回结果     做相应
+                alert(result);
+            }
+        }
+        //第二步 打开链接通道
+        ajax.open("get","a?a=3&b=4",true);  //第三个参数是   是否异步
+        //三：发送
+        ajax.send();
+    }
+</script>
+
+<p>2.Jquery实现方式；<br>$.ajax():<br>语法：$.ajax({键值对});</p>
+<script>
+    //定义方法
+    function fun() {
+        //使用$.ajax()发送异步请求
+        $.ajax({
+           url:"ajaxServlet",//请求路径
+            type:"post",  //请求方式 默认get
+           // data:"username=jack&age=23",          //携带的参数方法一
+            data:{"username":"jack","age":23},//方法二 推荐
+            //回调函数
+            success:function (data) {  //data接受服务器返回结果的值
+                alert(data)
+            },//响应成功后的回调函数
+            error:function () {
+                alert("出错了")
+            },//表示如果请求响应出错，会执行的回调函数
+            dataType:"text"//设置受到的响应的数据格式
+
+            });
+</script>
+
+<p>$.get():发送get请求<br>语法：$.get(url,[data],[callback],[type])<br>参数：<br>url:请求路径<br>data:请求参数<br>callback:回调函数<br>type:响应结果的类型</p>
+<script>
+    //定义方法
+    function fun() {
+        $.get("ajaxServlet",{username:"tom",age:23}, function (data) {
+            alert(data);
+        },"text");
+    }
+</script>
+
+<p>$.post():发送post请求</p>
+<script>
+    //定义方法
+    function fun() {
+        $.post("ajaxServlet",{username:"tom",age:23}, function (data) {
+            alert(data);
+        },"text");
+    }
+</script>
+
+
+
+
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://leeyujiao.github.io/2019/10/17/Java回顾01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,7 +401,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-20 09:34:22" itemprop="dateModified" datetime="2019-10-20T09:34:22+08:00">2019-10-20</time>
+                <time title="修改时间：2019-10-20 10:07:02" itemprop="dateModified" datetime="2019-10-20T10:07:02+08:00">2019-10-20</time>
               </span>
             
           
@@ -280,7 +434,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>计算机中最小存储文件的单位是字节<br>命令提示符—-常用命令<br>       1，启动：win+R<br>       2，切换盘符：D:         ( 指切换到D盘)   盘符的路径信息不区分大小写<br>       3，进入文件夹： cd 文件夹名称<br>       4，进入多级文件夹：cd 文件夹1\文件夹2\文件夹3\文件夹4\文件夹5<br>       5，返回上一级：cd..<br>       6，返回根目录：cd<br>       7，tab键的作用：补全文件名或者选择文件名<br>       8，读取文件夹内的子目录：dir  （DIR为文件夹的意思）（全拼directory）<br>       9，清屏操作：cls（全拼clear screen ）<br>      10，退出 ：exit<br>JVM（Java Virtual Machine）<br>        Java虚拟机，实现Java程序的跨平台特性（通俗说它的作用就是翻译），Java程序运行在JVM<br>        上，JVM运行在操作系统上。但虚拟机本身不具跨平台功能，每个操作系统都有对应的JVM。<br>JRE（Java Runtime Environment）和JDK（Java Development Kit）<br>        JRE：Java运行环境，包括JVM和Java程序运行时的核心类库，如果只运行不开发则只需要安装<br>                   JRE<br>         JDK：Java程序开发工具包，包括JRE和开发人员需要使用的工具<br>三者关系如图：</p>
+          <p>计算机中最小存储文件的单位是字节<br>命令提示符—-常用命令<br>       1，启动：win+R<br>       2，切换盘符：D:         ( 指切换到D盘)   盘符的路径信息不区分大小写<br>       3，进入文件夹： cd 文件夹名称<br>       4，进入多级文件夹：cd 文件夹1\文件夹2\文件夹3\文件夹4\文件夹5<br>       5，返回上一级：cd..<br>       6，返回根目录：cd<br>       7，tab键的作用：补全文件名或者选择文件名<br>       8，读取文件夹内的子目录：dir  （DIR为文件夹的意思）（全拼directory）<br>       9，清屏操作：cls（全拼clear screen ）<br>      10，退出 ：exit<br>JVM（Java Virtual Machine）<br>        Java虚拟机，实现Java程序的跨平台特性（通俗说它的作用就是翻译），Java程序运行在JVM<br>        上，JVM运行在操作系统上。但虚拟机本身不具跨平台功能，每个操作系统都有对应的JVM。<br>JRE（Java Runtime Environment）和JDK（Java Development Kit）<br>        JRE：Java运行环境，包括JVM和Java程序运行时的核心类库，如果只运行不开发则只需要安装<br>                   JRE<br>         JDK：Java程序开发工具包，包括JRE和开发人员需要使用的工具<br>三者关系如图：<br><img src="%5Cimages%5Cjava01.png" alt></p>
 
         
       
@@ -550,7 +704,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -563,7 +717,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
