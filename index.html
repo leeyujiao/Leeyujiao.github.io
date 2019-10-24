@@ -206,6 +206,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leeyujiao.github.io/2019/10/25/JSON/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leeyujiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leeyujiao's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2019/10/25/JSON/" class="post-title-link" itemprop="url">JSON</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-25 00:28:11 / 修改时间：00:34:02" itemprop="dateCreated datePublished" datetime="2019-10-25T00:28:11+08:00">2019-10-25</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ajax与JSON/" itemprop="url" rel="index">
+                    <span itemprop="name">Ajax与JSON</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>JavaScript Object Notation     Javascript对象表示法（用JSON表示对象）</p>
+<p>Person p=new Person();<br>p.setName(“张三”);<br>p.setAge(23);<br>p.setGender(“男”);</p>
+<p>var p={ “name”:”张三”, “age”:23, “gender”:”男”};</p>
+<p>json现在多用于存储和交换文本信息的语法；<br>进行数据的传输<br>json比xml更小，更快，更易分析。</p>
+<p>语法：<br>基本规则：<br>数据在名称/值对中：json数据是由键值对构成的；<br>键用引号（单双都可）引起来，也可以不使用引号<br>值的取值类型：<br>数字：（整数或浮点数）<br>字符串：（在双引号中）<br>逻辑值：（true或者false）<br>数组：（在方括号中）<br>对象：（在花括号中）json对象<br>null<br>数据由逗号分隔：多个键值对由逗号分隔；<br>花括号保存对象：使用{}定义json格式；<br>方括号保存数组：[ ]<br>获取数据：<br>json对象.键名<br>json对象.[“键名”]<br>数组对象[索引]</p>
+<pre><code>//例：
+var person={&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:23,&quot;gender&quot;:true};
+var name=person.name;
+alert(name);
+name=person[&quot;name&quot;];
+alert(name);
+
+var persons={
+  &quot;person&quot;:[
+      {&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:23,&quot;gender&quot;:true},
+      {&quot;name&quot;:&quot;李四&quot;,&quot;age&quot;:24,&quot;gender&quot;:true},
+      {&quot;name&quot;:&quot;王五&quot;,&quot;age&quot;:25,&quot;gender&quot;:false}
+  ]
+};
+var name1= persons.person[2].name;
+alert(name1);
+
+var ps=[
+    {&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:23,&quot;gender&quot;:true},
+    {&quot;name&quot;:&quot;李四&quot;,&quot;age&quot;:24,&quot;gender&quot;:true},
+    {&quot;name&quot;:&quot;王五&quot;,&quot;age&quot;:25,&quot;gender&quot;:false}
+];
+alert(ps[1].name);</code></pre>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://leeyujiao.github.io/2019/10/21/读书笔记之深入理解Java虚拟机/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-24 00:10:49" itemprop="dateModified" datetime="2019-10-24T00:10:49+08:00">2019-10-24</time>
+                <time title="修改时间：2019-10-25 00:27:03" itemprop="dateModified" datetime="2019-10-25T00:27:03+08:00">2019-10-25</time>
               </span>
             
           
@@ -287,7 +401,16 @@
 <p>程序计数器：<br>如果线程执行Java方法，程序计数器存储指令地址；但如果执行Native方法，计数器就为空。（Native方法就是计算机函数，它的实现由非Java语言完成）<br>Java虚拟机栈：<br>存储局部表量表，操作数栈，动态链接，方法出口等信息；<br>局部变量表存放编译器可知的基本数据类型，引用类型，returnAddress类型（指向一条字节码指令地址）；局部变量表在编译期间就完成了分配，方法运行期间它的大小不会发生改变；<br>本地方法栈：<br>类似于Java虚拟机栈，只不过，Java方法在Java虚拟机栈里，Native方法在本地方法栈中；<br>Java堆：<br>虚拟机所管理内存最大的一块，用来给对象实例和数组分配内存，它是垃圾收集器管理的主要区域，被称为GC堆（莫名觉得这个名字略有趣 Garbage Collected Heap）。<br>方法区：<br>用于储存被加载过的类信息，常量，静态变量，即时编译器编译后的代码等，除了可选择固定大小，可扩展且不需连续内存，还可以不实现垃圾收集，所以易因未完全回收出现内存泄漏。</p>
 <p>2019-10-23<br>对象的内存布局：<br>    对象在内存中的布局可分为三个区域：对象头，实例数据，对齐填充；其中对象头又包括：运行时数据和类型指针</p>
 <p>对象的访问定位：<br>    对象访问可通过两种方式：句柄访问和直接指针访问<br>    句柄访问中包括：对象实例数据指针和对象类型数据的指针，访问时需通过指针访问对象实例和对象类型数据<br>    指针访问中包括：对象类型数据的指针和对象实例。<br>    这两者皆有优缺点：句柄的优势是当对象位置改变时只需要改变句柄的实例数据指针，而直接指针在访问频繁时更节省时间；</p>
-<p>OutOfMemoryError异常：<br>    对于此异常，在我的理解中，要使Java堆出现此异常可以不断创建对象实例，因为Java堆主要用来存储对象实例；使虚拟机栈和本地方法栈抛内存异常(还是不太能理解为什么书上说只能抛出StackOverflowError异常)在书上是调用一个方法，从而创建一个栈帧，在方法里不停创建新的变量，因为本地方法栈和虚拟栈都和方法有关<br>（今天课略多，就看到了这……）    </p>
+<p>OutOfMemoryError异常：<br>    对于此异常，在我的理解中，要使Java堆出现此异常可以不断创建对象实例，因为Java堆主要用来存储对象实例；使虚拟机栈和本地方法栈抛内存异常(还是不太能理解为什么书上说只能抛出StackOverflowError异常)在书上是调用一个方法，从而创建一个栈帧，在方法里不停创建新的变量，因为本地方法栈和虚拟栈都和方法有关<br>（今天课略多，就看到了这……）<br>（第二章后面看得有点凌乱，等我有时间再捋一遍，然后再上传）<br>2019-10-24</p>
+<p>第三章：垃圾收集器与内存分配策略</p>
+<p>首先，程序计数器，虚拟机栈，本地方法栈都是线程私有，线程结束内存回收，所以不是垃圾回收的主要探讨区域；Java堆和方法区就不一样了，只有在程序运行区间 才能知道会创建那些对象，所以内存的分配是动态的，故而垃圾的回收也是动态的。</p>
+<p>要想让垃圾收集器进行回收要先判断对象是否还是被引用的：<br>用到的算法：</p>
+<p>引用计数法：<br>给对象添加引用计数器，当对象被引用时，计数器就加一，引用失效时减一，垃圾收集器在回收时就会进行判断，如果引用计数器为0就可以回收，引用计数器看起来实现简单，判断效率也高，但书中列出了一个代码，引人思考，当两个对象相互引用时，它们谁的引用计数器都不为0，所以即使不再使用它们，垃圾收集器也不能收到引用计数器发出的信号而去回收它们。<br>可达性分析算法：通过一个GC Roots对象作为起始点，当一个对象向上没有引用链链接起始点时，它就可以被回收了；</p>
+<p>垃圾收集的几种算法：</p>
+<p>标记清除法：<br>先标记要被回收的对象，清除时只需要清除被标记的对象。<br>特点：效率低，空间碎片化</p>
+<p>复制算法：<br>把内存分为两部分：一部分被使用，当这部分内存用完了，就将还“活着”的对象复制到另一部分中去，然后再把之前那部分全部清除。<br>特点：效率略高，解决了标记清除的空间碎片化问题，但是把一个空间分成了两部分，而且当老年代多时，需要复制的对象就会很多，工作量会很大。</p>
+<p>标记整理算法：<br>将存活对象标记后都挪到一端，然后清除边界外的对象。<br>特点：相对标记清除没有让空间碎片化，相对于复制算法保留了更多空间进行操作。</p>
+<p>分代收集算法：<br>将Java堆分为新生代和老年代，然后再给它们安排适合的算法。<br>新生对象代存活量少，所以使用复制算法，老年代对象存活量高，选用标记清除和标记整理算法。</p>
 
         
       
@@ -788,7 +911,7 @@ function fun() {
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
