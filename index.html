@@ -236,7 +236,7 @@
                 
               
 
-              <time title="创建时间：2019-11-05 19:37:19 / 修改时间：19:45:14" itemprop="dateCreated datePublished" datetime="2019-11-05T19:37:19+08:00">2019-11-05</time>
+              <time title="创建时间：2019-11-05 19:37:19 / 修改时间：19:50:48" itemprop="dateCreated datePublished" datetime="2019-11-05T19:37:19+08:00">2019-11-05</time>
             </span>
           
             
@@ -272,7 +272,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h5 id="Scanner类："><a href="#Scanner类：" class="headerlink" title="Scanner类："></a>Scanner类：</h5><p>功能：可以实现键盘输入数据，到程序中。</p>
+          <p>Scanner类：<br>功能：可以实现键盘输入数据，到程序中。</p>
 <p>引用类型的一般使用步骤：</p>
 <p>1.导包：<br>import 包路径.类名称;<br>如果需要使用的目标类，和当前类位于同一个包下，则可以省略导包语句不写；<br>只有Java.lang包下的内容不需要导包。<br>lang包提供基础类，最重要的是Object（它是类层次结构的根）和 Class（它的实例表示正在运行的应用程序中的类）</p>
 <p>2.创建：<br>类名称 对象名 =new 类名称()；</p>
@@ -295,7 +295,7 @@ public class Demo01Scanner {
         System.out.println(str);
     }
 }</code></pre><p>使用api查看类的基本步骤：<br>查看包；<br>查看构造方法；<br>查看成员方法；</p>
-<h5 id="匿名对象："><a href="#匿名对象：" class="headerlink" title="匿名对象："></a>匿名对象：</h5><p>只有右边的对象，没有左边的名字和赋值运算符。<br>例如：<br>new 类名称（）；<br>注意事项：<br>匿名对象只能使用唯一的一次，下次再用不得不再创建一个新对象；<br>使用建议：<br>如果确定有一对象只需要使用唯一的一次，就可以使用匿名对象；</p>
+<p>匿名对象：<br>只有右边的对象，没有左边的名字和赋值运算符。<br>例如：<br>new 类名称（）；<br>注意事项：<br>匿名对象只能使用唯一的一次，下次再用不得不再创建一个新对象；<br>使用建议：<br>如果确定有一对象只需要使用唯一的一次，就可以使用匿名对象；</p>
 <pre><code>public class Demo01Anonymous {
     public static void main(String[] args) {
         new Person().showName(&quot;lyjiao&quot;);
@@ -320,14 +320,23 @@ public static void main(String[] args) {
 public static void methodParam(Scanner sc){
     int i = sc.nextInt();
     System.out.println(&quot;输出的是：&quot;+i);
-}</code></pre><p>​    匿名对象作为返回值：</p>
-<p>​    public static void main(String[] args) {<br>​        System.out.println(“输出的是是”+methodParam().nextInt());<br>​    }</p>
-<p>​    public static Scanner methodParam(){<br>​      return new Scanner(System.in );<br>​    }</p>
-<h5 id="Random类："><a href="#Random类：" class="headerlink" title="Random类："></a>Random类：</h5><p>用来生成随机数字，使用的三个步骤：<br>导包：<br>import java.util.Random<br>创建：<br>Random r=new Random();//小括号留空<br>使用：<br>获取一个随机的数字(范围是int的所有范围，有正负两种)：int num=r.nextInt();<br>获取一个随机的数字(参数代表范围，左闭右开区间) int num=t.next(3);<br>实际代表的含义是：[0,3),也就是0~2</p>
+}
+
+
+匿名对象作为返回值：
+
+public static void main(String[] args) {  
+    System.out.println(&quot;输出的是是&quot;+methodParam().nextInt());
+}
+
+public static Scanner methodParam(){
+  return new Scanner(System.in );
+}</code></pre><p>Random类：<br>用来生成随机数字，使用的三个步骤：<br>导包：<br>import java.util.Random<br>创建：<br>Random r=new Random();//小括号留空<br>使用：<br>获取一个随机的数字(范围是int的所有范围，有正负两种)：int num=r.nextInt();<br>获取一个随机的数字(参数代表范围，左闭右开区间) int num=t.next(3);<br>实际代表的含义是：[0,3),也就是0~2</p>
 <pre><code>public static void main(String[] args) {
     Random r=new Random();
     System.out.println(r.nextInt());
-}</code></pre><h5 id="ArrayList类："><a href="#ArrayList类：" class="headerlink" title="ArrayList类："></a>ArrayList类：</h5><p>数组有一个缺点，一旦创建，程序运行期间长度不可以发生改变，故用集合来弥补其缺陷。</p>
+}</code></pre><p>ArrayList类：</p>
+<p>数组有一个缺点，一旦创建，程序运行期间长度不可以发生改变，故用集合来弥补其缺陷。</p>
 <pre><code>//数组实现：
     Person[] arr=new Person[3];
 
