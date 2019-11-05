@@ -206,6 +206,225 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leeyujiao.github.io/2019/11/05/常用API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leeyujiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leeyujiao's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2019/11/05/常用API/" class="post-title-link" itemprop="url">常用API</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-05 19:37:19 / 修改时间：19:45:14" itemprop="dateCreated datePublished" datetime="2019-11-05T19:37:19+08:00">2019-11-05</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/回顾复习/" itemprop="url" rel="index">
+                    <span itemprop="name">回顾复习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="Scanner类："><a href="#Scanner类：" class="headerlink" title="Scanner类："></a>Scanner类：</h5><p>功能：可以实现键盘输入数据，到程序中。</p>
+<p>引用类型的一般使用步骤：</p>
+<p>1.导包：<br>import 包路径.类名称;<br>如果需要使用的目标类，和当前类位于同一个包下，则可以省略导包语句不写；<br>只有Java.lang包下的内容不需要导包。<br>lang包提供基础类，最重要的是Object（它是类层次结构的根）和 Class（它的实例表示正在运行的应用程序中的类）</p>
+<p>2.创建：<br>类名称 对象名 =new 类名称()；</p>
+<p>3.使用：<br>对象名.成员方法()</p>
+<pre><code>import java.util.Scanner;//导包
+public class Demo01Scanner {
+
+    public static void main(String[] args) {
+        //创建
+        //System.in代表从键盘输入
+        Scanner in=new Scanner(System.in);
+
+         //使用
+        //获取键盘输入的一个int数字： int num=in.nextInt();
+        //获取键盘输入的一个字符串：String str=in.next();
+        int num=in.nextInt();
+        String str=in.next();
+
+        System.out.println(num);
+        System.out.println(str);
+    }
+}</code></pre><p>使用api查看类的基本步骤：<br>查看包；<br>查看构造方法；<br>查看成员方法；</p>
+<h5 id="匿名对象："><a href="#匿名对象：" class="headerlink" title="匿名对象："></a>匿名对象：</h5><p>只有右边的对象，没有左边的名字和赋值运算符。<br>例如：<br>new 类名称（）；<br>注意事项：<br>匿名对象只能使用唯一的一次，下次再用不得不再创建一个新对象；<br>使用建议：<br>如果确定有一对象只需要使用唯一的一次，就可以使用匿名对象；</p>
+<pre><code>public class Demo01Anonymous {
+    public static void main(String[] args) {
+        new Person().showName(&quot;lyjiao&quot;);
+    }
+}
+
+
+
+public class Person {
+
+    public void showName(String name){
+        System.out.println(&quot;我叫:&quot;+name );
+    }
+}
+
+
+匿名对象作为参数值：
+public static void main(String[] args) {
+    methodParam(new Scanner(System.in));
+}
+
+public static void methodParam(Scanner sc){
+    int i = sc.nextInt();
+    System.out.println(&quot;输出的是：&quot;+i);
+}</code></pre><p>​    匿名对象作为返回值：</p>
+<p>​    public static void main(String[] args) {<br>​        System.out.println(“输出的是是”+methodParam().nextInt());<br>​    }</p>
+<p>​    public static Scanner methodParam(){<br>​      return new Scanner(System.in );<br>​    }</p>
+<h5 id="Random类："><a href="#Random类：" class="headerlink" title="Random类："></a>Random类：</h5><p>用来生成随机数字，使用的三个步骤：<br>导包：<br>import java.util.Random<br>创建：<br>Random r=new Random();//小括号留空<br>使用：<br>获取一个随机的数字(范围是int的所有范围，有正负两种)：int num=r.nextInt();<br>获取一个随机的数字(参数代表范围，左闭右开区间) int num=t.next(3);<br>实际代表的含义是：[0,3),也就是0~2</p>
+<pre><code>public static void main(String[] args) {
+    Random r=new Random();
+    System.out.println(r.nextInt());
+}</code></pre><h5 id="ArrayList类："><a href="#ArrayList类：" class="headerlink" title="ArrayList类："></a>ArrayList类：</h5><p>数组有一个缺点，一旦创建，程序运行期间长度不可以发生改变，故用集合来弥补其缺陷。</p>
+<pre><code>//数组实现：
+    Person[] arr=new Person[3];
+
+    Person one=new Person(&quot;李四&quot;,23);
+    Person tow=new Person(&quot;王五&quot;,21);
+    Person three=new Person(&quot;赵四&quot;,33);
+    //将one中的地址值赋值到数组的0号元素位置
+    arr[0]=one;
+    arr[1]=tow;
+    arr[2]=three;
+
+    System.out.println(arr[1].getAge()+arr[1].getName());
+}</code></pre><p>数组的长度不可以发生改变，<br>但ArrayList集合的长度是可以随意变化的。</p>
+<p>对于ArrayList来说，有一个<e>代表泛型<br>泛型：也就是装在集合中的所有元素，全部是统一的类型<br>注：泛型只能是引用类型，不能是基本类型<br>        public static void main(String[] args) {<br>            //创建一个ArrayList集合，集合的名称是arraylist，里面装的全都是String类型的数据<br>            //&lt;&gt;中必须是引用类型<br>            //备注：从JDK1.7开始，右侧的尖括号内部可以不写内容，但是&lt;&gt;本身不能省略</e></p>
+<pre><code>    ArrayList&lt;String &gt;  arrayList=new ArrayList&lt;&gt;();
+
+    System.out.println(arrayList);//[]
+
+    //向集合中添加元素需要用到add（）方法
+    arrayList.add(&quot;李四&quot;);
+    System.out.println(arrayList);//[李四]
+
+    arrayList.add(&quot;路飞&quot;);
+    System.out.println(arrayList);//[李四,路飞]
+}</code></pre><p>ArrayList当时中的常用方法：</p>
+<p>public boolean add(E e):向集合中添加元素，元素的类型和泛型一致，返回值代表是否成功<br>备注：对于ArrayList集合来说，add添加动作一定是成功的，所以返回值可用可不用<br>但是对于其他集合来说，add添加动作不一定成功<br>public E get(int index):从集合中获取元素，参数是索引编号，返回值是集合元素<br>public E remove(int index):从集合中删除元素，参数是索引编号，返回值是删除的元素<br>public int size():获取集合的尺寸长度，返回值是集合中包含元素的个数</p>
+<pre><code>public static void main(String[] args) {
+    ArrayList&lt;String &gt; list=new ArrayList&lt;&gt;();
+    //向集合中添加元素
+    boolean success = list.add(&quot;索隆&quot;);
+
+    System.out.println(list);//[索隆]
+    System.out.println(success);//true
+
+    list.add(&quot;路飞&quot;);
+    list.add(&quot;山治&quot;);
+    list.add(&quot;黑胡子&quot;);
+    list.add(&quot;乌索普&quot;);
+    System.out.println(list);//[索隆, 路飞, 山治, 黑胡子, 乌索普]
+    //从集合中获取元素
+
+    String s = list.get(2);
+    System.out.println(s);//山治
+
+    //从集合中删除元素
+
+    String remove = list.remove(3);
+    System.out.println(&quot;删除的是&quot;+remove);//删除的是黑胡子
+    System.out.println(list);//[索隆, 路飞, 山治, 乌索普]
+
+    //测试集合的元素个数
+    int size = list.size();
+    System.out.println(size);//4
+}</code></pre><p>为什么&lt;&gt;里不能写基本类型：<br>因为集合里存入的是地址值，而基本数据类型没有地址值<br>怎么用集合储存基本数据类型元素<br>使用基本类型对应的“包装类”</p>
+<pre><code>基本类型            包装类
+byte                    Byte
+short                   Short
+int                     Integer       【**】
+double              Double
+float                   Float
+long                    Long
+char                    Charecter       【**】
+boolean             Bloolean
+
+从JDK1.5开始，支持自动装箱，自动拆箱
+自动装箱：基本类型---&gt;包装类型
+自动拆箱：包装类型---&gt;基本类型
+
+    ArrayList&lt;Integer&gt; list=new ArrayList&lt;&gt;();
+
+    list.add(100);
+    list.add(200);
+    list.add(300);
+    list.add(400);
+    //接收可用int
+    int a = list.get(2);
+    System.out.println(a );</code></pre>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://leeyujiao.github.io/2019/10/25/JSON/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -917,7 +1136,7 @@ function fun() {
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
