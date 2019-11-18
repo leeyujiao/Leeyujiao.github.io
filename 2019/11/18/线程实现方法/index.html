@@ -55,20 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Ajax:Asynchronous Javascript And xml     异步的JavaScript和XML。1，异步和同步：客户端和服务器端相互通信的基础上客户端必须等待服务器端的响应，在等待期间不能做其他操作；客户端不需要等待服务器端的响应，在服务器处理请求的过程中，客户端可以进行其他操作AJAX是一种在无需重新加载整个页面的情况下，能够更新部分网页的技术。通过在后台与服务器进行少量数">
+  <meta name="description" content="并发和并行：并发：指两个或多个事件在同一时间段发生；并行：指两个或多个事件在同一时刻发生（同时发生）； 线程与进程：进程：内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以运行多进程，进程也是程序的一次执行过程，是系统运行程序的基本单位（进入到内存中的程序）；线程：进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个 线程，也可以有多线程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ajax">
-<meta property="og:url" content="https://leeyujiao.github.io/2019/10/20/Ajax/index.html">
+<meta property="og:title" content="线程实现方法">
+<meta property="og:url" content="https://leeyujiao.github.io/2019/11/18/线程实现方法/index.html">
 <meta property="og:site_name" content="leeyujiao&#39;s blog">
-<meta property="og:description" content="Ajax:Asynchronous Javascript And xml     异步的JavaScript和XML。1，异步和同步：客户端和服务器端相互通信的基础上客户端必须等待服务器端的响应，在等待期间不能做其他操作；客户端不需要等待服务器端的响应，在服务器处理请求的过程中，客户端可以进行其他操作AJAX是一种在无需重新加载整个页面的情况下，能够更新部分网页的技术。通过在后台与服务器进行少量数">
+<meta property="og:description" content="并发和并行：并发：指两个或多个事件在同一时间段发生；并行：指两个或多个事件在同一时刻发生（同时发生）； 线程与进程：进程：内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以运行多进程，进程也是程序的一次执行过程，是系统运行程序的基本单位（进入到内存中的程序）；线程：进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个 线程，也可以有多线程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://leeyujiao.github.io/2019/10/20/Ajax/images/ajax01.png">
-<meta property="og:updated_time" content="2019-10-20T02:37:52.496Z">
+<meta property="og:updated_time" content="2019-11-18T14:00:19.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ajax">
-<meta name="twitter:description" content="Ajax:Asynchronous Javascript And xml     异步的JavaScript和XML。1，异步和同步：客户端和服务器端相互通信的基础上客户端必须等待服务器端的响应，在等待期间不能做其他操作；客户端不需要等待服务器端的响应，在服务器处理请求的过程中，客户端可以进行其他操作AJAX是一种在无需重新加载整个页面的情况下，能够更新部分网页的技术。通过在后台与服务器进行少量数">
-<meta name="twitter:image" content="https://leeyujiao.github.io/2019/10/20/Ajax/images/ajax01.png">
-  <link rel="canonical" href="https://leeyujiao.github.io/2019/10/20/Ajax/">
+<meta name="twitter:title" content="线程实现方法">
+<meta name="twitter:description" content="并发和并行：并发：指两个或多个事件在同一时间段发生；并行：指两个或多个事件在同一时刻发生（同时发生）； 线程与进程：进程：内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以运行多进程，进程也是程序的一次执行过程，是系统运行程序的基本单位（进入到内存中的程序）；线程：进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个 线程，也可以有多线程。">
+  <link rel="canonical" href="https://leeyujiao.github.io/2019/11/18/线程实现方法/">
 
 
 <script id="page-configurations">
@@ -82,7 +80,7 @@
   };
 </script>
 
-  <title>Ajax | leeyujiao's blog</title>
+  <title>线程实现方法 | leeyujiao's blog</title>
   
 
 
@@ -212,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://leeyujiao.github.io/2019/10/20/Ajax/">
+    <link itemprop="mainEntityOfPage" href="https://leeyujiao.github.io/2019/11/18/线程实现方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="leeyujiao">
@@ -226,7 +224,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            Ajax
+            线程实现方法
             
 
           
@@ -243,7 +241,7 @@
                 
               
 
-              <time title="创建时间：2019-10-20 10:08:10 / 修改时间：10:37:52" itemprop="dateCreated datePublished" datetime="2019-10-20T10:08:10+08:00">2019-10-20</time>
+              <time title="创建时间：2019-11-18 21:56:51 / 修改时间：22:00:19" itemprop="dateCreated datePublished" datetime="2019-11-18T21:56:51+08:00">2019-11-18</time>
             </span>
           
             
@@ -257,8 +255,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ajax与JSON/" itemprop="url" rel="index">
-                    <span itemprop="name">Ajax与JSON</span>
+                  <a href="/categories/线程/" itemprop="url" rel="index">
+                    <span itemprop="name">线程</span>
                   </a>
                 </span>
 
@@ -279,55 +277,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Ajax:<br>Asynchronous Javascript And xml     异步的JavaScript和XML。<br>1，异步和同步：客户端和服务器端相互通信的基础上<br>客户端必须等待服务器端的响应，在等待期间不能做其他操作；<br>客户端不需要等待服务器端的响应，在服务器处理请求的过程中，客户端可以进行其他操作<br><img src="images\ajax01.png"><br>AJAX是一种在无需重新加载整个页面的情况下，能够更新部分网页的技术。<br>通过在后台与服务器进行少量数据交换，Ajax可以使网页实现异步更新，这意味着可以在不重新加载整个页面的情况下，对网页的某部分进行更新。<br>传统的网页（不使用Ajax）如果需要更新内容，必须重载整个网页页面<br>提升用户体验；</p>
-<p>实现方式：<br>1.原生的js实现方式；</p>
-<pre><code>function ajaxdemo(){
-    //第一步 创建Ajax对象
-    var ajax=new XMLHttpRequest();
-    //第四步：回调
-    ajax.onreadystatechange=function () {  //当有回调时
-        var ststus1=ajax.status;  //状态码
-        var readyStatel=ajax.readyState;//
-        if (ststus1==200&amp;&amp;readyStatel==4) {//200 路径正确，servlet未出错  500客户端错    400    服务器错误     4 全完成    3 未返回回应 2 未send  1  创建未open 0 未创建
-            var result = ajax.responseText;   //返回结果     做相应
-            alert(result);
-        }
-    }
-    //第二步 打开链接通道
-    ajax.open(&quot;get&quot;,&quot;a?a=3&amp;b=4&quot;,true);  //第三个参数是   是否异步
-    //三：发送
-    ajax.send();
-}</code></pre><p>2.Jquery实现方式；<br>$.ajax():<br>语法：$.ajax({键值对});</p>
-<pre><code>//定义方法
-function fun() {
-    //使用$.ajax()发送异步请求
-    $.ajax({
-       url:&quot;ajaxServlet&quot;,//请求路径
-        type:&quot;post&quot;,  //请求方式 默认get
-       // data:&quot;username=jack&amp;age=23&quot;,          //携带的参数方法一
-        data:{&quot;username&quot;:&quot;jack&quot;,&quot;age&quot;:23},//方法二 推荐
-        //回调函数
-        success:function (data) {  //data接受服务器返回结果的值
-            alert(data)
-        },//响应成功后的回调函数
-        error:function () {
-            alert(&quot;出错了&quot;)
-        },//表示如果请求响应出错，会执行的回调函数
-        dataType:&quot;text&quot;//设置受到的响应的数据格式
+        <p>并发和并行：<br>并发：指两个或多个事件在同一时间段发生；<br>并行：指两个或多个事件在同一时刻发生（同时发生）；</p>
+<p>线程与进程：<br>进程：内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以运行多进程，进程也是程序的一次执行过程，是系统运行程序的基本单位（进入到内存中的程序）；<br>线程：进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个 线程，也可以有多线程。<br>              *进程包括线程</p>
+<p>线程调度：<br>分时调度：轮流使用，平均分配CPU占用时间；<br>抢占调度：优先让优先级高的线程使用CPU，若优先级相同，则随机选择，（Java使用抢占调度）</p>
+<p>主线程：<br>执行主方法（main）的线程就叫主线程。<br>单线程程序：Java程序中只有一个线程的程序，执行从main方法从上到下依次执行。<br>单线程的弊端：<br>       执行过程中若前面语句有错，后面语句就不能被执行。</p>
+<p>创建线程类<br>Java.lang.Thread类代表线程，所有线程都必须是Thread类或其子类的实例，Java中通过继承该<br>类来创建并启动多线程的步骤：<br>1，定义Thread的子类，并重写其run()方法，该run()方法的方法体就代表了线程该完成的任<br>务，因此将run()方法称为线程的执行体；<br>2，创建线程对象，即创建了Thread类的实例；<br>3，通过调用对象的start()方法来启动该线程。</p>
+<p>创建多线程程序：<br>      第一种方式（通过继承Thread类）：<br>将类声明为Thread的子类，该子类重写Thread的run方法，再新建一个子类对象，通过子类对象调用start方法，从而实现新线程的创建<br>查询API得：<br>start():<br>public void start()使该线程开始执行；Java 虚拟机调用该线程的 run 方法。<br>结果是两个线程并发地运行；当前线程（从调用返回给 start 方法）和另一个线程（执行其 run 方法）。<br>多次启动一个线程是非法的。特别是当线程已经结束执行后，不能再重新启动。<br>java线程调度属于抢占型：哪个线程优先级高，就先执行哪个，同一优先级，随机<br>public class ThreadDemo1 extends Thread {<br>    public void run() {<br>        for (int i = 0; i &lt;10 ; i++) {<br>            System.out.println(“run:”+(i+1));<br>        }<br>    }</p>
+<pre><code>public static void main(String[] args) {
 
-        });</code></pre><p>$.get():发送get请求<br>语法：$.get(url,[data],[callback],[type])<br>参数：<br>url:请求路径<br>data:请求参数<br>callback:回调函数<br>type:响应结果的类型</p>
-<pre><code>//定义方法
-function fun() {
-    $.get(&quot;ajaxServlet&quot;,{username:&quot;tom&quot;,age:23}, function (data) {
-        alert(data);
-    },&quot;text&quot;);
-}</code></pre><p>$.post():发送post请求</p>
-<pre><code>//定义方法
-function fun() {
-    $.post(&quot;ajaxServlet&quot;,{username:&quot;tom&quot;,age:23}, function (data) {
-        alert(data);
-    },&quot;text&quot;);
-}</code></pre>
+    new ThreadDemo1().start();
+    for (int i = 0; i &lt;10 ; i++) {
+        System.out.println(&quot;main:&quot;+(i+1));
+    }
+}</code></pre><p>}</p>
+<p>Thread类中的方法：<br>1，获取线程名称：<br>    a:使用Thread类中的方法getName()<br>        String getName()<br>        返回的是线程的名称<br>    b：先获取到当前正在执行的线程，使用线程中的方法getName()获取线程名称<br>        static Thread currentThread() 返回对当前正在执行中的线程对象的引用<br>线程的名称：<br>    主线程：main<br>    新线程：Thread-0,Thread-1…</p>
+<p> 2，设置线程的名称：<br>        a:public final void setName(String name)改变线程名称，使之与参数 name 相同。<br>        b: 构造方法：public Thread(String name)分配新的 Thread 对象。这种构造方法与 Thread(null, null, name) 具有相同的作用。</p>
+<p>3，暂停线程：<br>public static void sleep(long millis)<br>在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。</p>
+<p>第二种方式（接口）：通过实现Runnable接口从而实现多线程<br>实现步骤：<br>    1，创建一个Runnable接口的实现类<br>    2，在实现类中重写run方法，设置线程想完成的操作<br>    3，创建实现类的对象<br>    4，创建Thread类对象，构造方法中传递Runnable实现类的对象<br>    5，调用Thread类中的start方法，从而执行run方法</p>
+<p>实现Runnable接口创建多线程的好处：<br>    1，避免了单继承的局限性，一个类不能多继承（如果继承了Thread类就不能再继承其他<br>           类）<br>            2，增强了程序的扩展性，降低了程序的耦合性（解耦）<br>    实现Runnable接口的方式，把设置线程任务和开启新任务进行了分离<br>    实现类中，重写run方法，用来设置线程任务<br>    创建Thread类对象，调用start方法，用来开启新线程</p>
+
     </div>
 
     
@@ -343,8 +311,8 @@ function fun() {
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/17/Java回顾01/" rel="next" title="Java回顾01">
-                  <i class="fa fa-chevron-left"></i> Java回顾01
+                <a href="/2019/11/05/ceshi/" rel="next" title="ceshi">
+                  <i class="fa fa-chevron-left"></i> ceshi
                 </a>
               
             </div>
@@ -352,10 +320,6 @@ function fun() {
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/21/读书笔记之深入理解Java虚拟机/" rel="prev" title="读书笔记之深入理解Java虚拟机">
-                  读书笔记之深入理解Java虚拟机 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
